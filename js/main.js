@@ -5,6 +5,9 @@ let tiempoField = document.getElementById("tiempoInput");
 
 //Identificar botón que hará la acción
 let agregarBtn = document.getElementById("btnAgregarTarea");
+
+let tareasUl = document.getElementById("tareasPendientesUl");
+
 //Asignar las variables a un objeto para poder usarlas
 agregarBtn.addEventListener("click", () => {
   let tarea = tareaField.value;
@@ -82,6 +85,7 @@ const createTareaItem = (singleTask) => {
   let addTaskBtn = document.createElement("button");
   let btnText = document.createTextNode("+");
   addTaskBtn.classList.add("btn", "btn-success");
+  console.log(btnText.id);
   addTaskBtn.append(btnText);
 
   let deleteTaskBtn = document.createElement("button");
@@ -92,6 +96,35 @@ const createTareaItem = (singleTask) => {
   deleteTaskBtn.addEventListener("click", async () => {
     let data = await deleteTask(key);
     printAllTasks();
+  });
+
+  let todoNow = document.getElementById("todoNow");
+
+  addTaskBtn.addEventListener("click", () => {
+    todoNow.appendChild(newLi);
+    addTaskBtn.style.display = "none";
+    deleteTaskBtn.classList.replace("btn-danger", "btn-primary");
+    let terminadoText = document.createTextNode("Terminado");
+    deleteTaskBtn.textContent = "";
+    deleteTaskBtn.append(terminadoText);
+
+    let removeFromTodoNow = document.createElement("button");
+    removeFromTodoNow.classList.add("btn", "btn-danger");
+    removeFromTodoNow.id = "removeFromTodoNow";
+    let removeFromTodoNowText = document.createTextNode("-");
+    removeFromTodoNow.append(removeFromTodoNowText);
+    newLi.append(removeFromTodoNow);
+
+    let removeBtn = document.getElementById("removeFromTodoNow");
+    removeBtn.addEventListener("click", () => {
+      addTaskBtn.style.display = "inline";
+      tareasUl.appendChild(newLi);
+      removeFromTodoNow.style.display = "none";
+      deleteTaskBtn.classList.replace("btn-primary", "btn-danger");
+      deleteTaskBtn.textContent = "";
+
+      deleteTaskBtn.append(deleteTaskBtnText);
+    });
   });
 
   buttonWrapper.append(addTaskBtn, deleteTaskBtn);
