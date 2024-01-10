@@ -4,41 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
     <title>Lista de tareas</title>
+    <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-12 col-md-6 ">
-            <form>
-                <div class="mb-3 ">
-                    <label class="form-label">Tarea</label>
-                    <input class="form-control" id="tareaInput">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Tiempo</label>
-                    <input class="form-control" type="number" id="tiempoInput">
-                </div>
-                <button id="btnAgregarTarea" type="button" class="btn btn-primary">Agregar</button>
-            </form>
-        </div>
+
+<section id="conntainerPrin" class=" col-12 ">
+    <div class="ContainerForm col-7 bg-dark">
+        <form class="container">
+            <h2 class="text-white">Add your Skill</h2>
+            <div class="form-group">
+              <label   for="nombre">Tarea:</label>
+              <input id="tareaInput" type="text" class="form-control" id="nombre" placeholder="Ingresa la tarea a realizar">
+            </div>
+            <div class="form-group">
+              <label for="correo">Tiempo:</label>
+              <input id="tiempoInput" type="number" class="form-control" id="correo" placeholder="Ingrese el tiempo estimado de la tarea">
+            </div>
+            <button id="btnAgregarTarea" type="button" class="btn btn-primary mx-auto m-1">Guardar</button>
+          </form>
     </div>
 
-    <div class="bg-secondary">
+    <div class="containerTimeTareas bg-secondary col-4">
+        <h2>Tareas en 50 min</h2>
         <ul class="list-group">
-            <li class="list-group-item">An item <span>Min: 5</span><button class="btn btn-success">+</button></li>
-            <li class="list-group-item">A second item <span>Min: 5</span><button class="btn btn-success">+</button></li>
-            <li class="list-group-item">A third item <span>Min: 5</span><button class="btn btn-success">+</button></li>
-            <li class="list-group-item">A fourth item <span>Min: 5</span><button class="btn btn-success">+</button></li>
-            <li class="list-group-item">And a fifth one <span>Min: 5</span><button class="btn btn-success">+</button>
-            </li>
+            <li class="list-group-item d-flex flex-row justify-content-between m-1 w-70"> <span>Comer Min: 5</span> <button class="btn btn-success">+</button></li>
+            
+          
+           
         </ul>
-
     </div>
+
+
+</section>
+
+<section id="containerTareaAdd" class=" col-6 center bg-secondary">
+    <h2 class="text-center">Tareas Agregadas</h2>
+
+    <div class="container">
+    <ul class="list-group d-flex justify-content-center">
+        <li class="list-group-item d-flex flex-row justify-content-between m-1 col-5"> <span>Comer Min: 5</span> <button class="btn btn-success">+</button></li>
+        <li class="list-group-item d-flex flex-row justify-content-between m-1 col-5"> <span>Comer Min: 5</span> <button class="btn btn-success">+</button></li>
+        <li class="list-group-item d-flex flex-row justify-content-between m-1 col-5"> <span>Comer Min: 5</span> <button class="btn btn-success">+</button></li>
+        
+        
+         
+    </ul>
+    </div>
+</section>
+
+
+
+  
+
+
+
+
+    
 
     <script src="./js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

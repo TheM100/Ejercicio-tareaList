@@ -1,27 +1,39 @@
 let tareaField = document.getElementById("tareaInput");
 let tiempoField = document.getElementById("tiempoInput");
-
 let agregarBtn = document.getElementById("btnAgregarTarea");
 
+
+
 agregarBtn.addEventListener("click", () => {
-  let tarea = tareaField.value;
-  let tiempo = tiempoField.value;
-  if (tarea && tiempo) {
-    let saveTarea = { tarea, tiempo };
-    saveTareaDB(saveTarea);
-  } else alert("Llénelo compa");
+  
+  let objTarea = {
+    tarea : "",
+    time : "",
+  }
+    let textTarea = tareaField.value
+    let textTime = tiempoField.value
+
+    if (textTarea && textTime) {
+      objTarea.tarea = textTarea
+      objTarea.time = textTime
+      }else{
+        alert("Llena bien los campos Compa")
+      }
+
+      console.log(objTarea)
+      saveTareaDB(objTarea)
+
 });
 
-const saveTareaDB = async (tarea) => {
+//Funcion para Insertar en BD
+const saveTareaDB = async (ObjetoTareas) => {
   let response = await fetch(
-    "https://tareas-bbf13-default-rtdb.firebaseio.com/.json",
+    "https://tareasbd-d66b3-default-rtdb.firebaseio.com/.json",
 
     {
       method: "POST",
-      body: JSON.stringify(tarea),
+      body: JSON.stringify(ObjetoTareas),
     }
   );
-  //   console.log(saveTarea);
-  //   let data = await response.json();
-  //   return data;
+ 
 };

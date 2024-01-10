@@ -1,0 +1,14 @@
+#conntainerPrin {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5vh;
+}
+#conntainerPrin form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#conntainerPrin form label {
+  color: whitesmoke;
+}/*# sourceMappingURL=styles.css.map */
