@@ -27,13 +27,23 @@ agregarBtn.addEventListener("click", () => {
 
 //Funcion para Insertar en BD
 const saveTareaDB = async (ObjetoTareas) => {
-  let response = await fetch(
-    "https://tareasbd-d66b3-default-rtdb.firebaseio.com/.json",
+    let response = await fetch(
+      "https://tareasbd-d66b3-default-rtdb.firebaseio.com/.json",
+      {
+        method: "POST",
+        body: JSON.stringify(ObjetoTareas),
+      }
+    );
 
-    {
-      method: "POST",
-      body: JSON.stringify(ObjetoTareas),
-    }
-  );
- 
-};
+ };
+
+//funcion para consultar en la BD
+const getAllTareas = async () =>{ //como en este caso es para consultar datos, no fue necesario especificar el metodo, que en este caso seria get, js lo intuye
+  let response = await fetch("https://tareasbd-d66b3-default-rtdb.firebaseio.com/.json")
+
+  let Skils = await response.json();
+  // console.log(users)
+  return Skils
+
+       
+}
