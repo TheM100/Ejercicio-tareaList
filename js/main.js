@@ -13,7 +13,6 @@ agregarBtn.addEventListener("click", () => {
   if (tarea && tiempo) {
     let saveTarea = { tarea, tiempo };
     saveTareaDB(saveTarea);
-    console.log(saveTareaDB(saveTarea));
   } else alert("Llénelo compa");
 });
 
@@ -40,7 +39,7 @@ const getAllTareas = async () => {
   return data;
 };
 //Imprimir las tareas de la base de datos en la lista
-// const createTareaItem = (tareaObject) => {
-//     let {tarea, tiempo} =
+ const createTareaItem = (tareaObject) => {
+     let {tarea, tiempo,key} =
 
-// }
+ }
