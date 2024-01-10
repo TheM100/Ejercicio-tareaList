@@ -28,6 +28,7 @@ const saveTareaDB = async (tarea) => {
   );
   let data = await response.json();
   return data;
+  printAllTasks();
 };
 
 //Tomar la lista de tareas de la base de datos
@@ -41,9 +42,9 @@ const getAllTareas = async () => {
 };
 
 //funcion para borrar
-const deleteTask = async (taskKey) => {
+const deleteTask = async (key) => {
   let response = await fetch(
-    "https://tareas-bbf13-default-rtdb.firebaseio.com/.json",
+    `https://tareas-bbf13-default-rtdb.firebaseio.com/${key}/.json`,
     {
       method: "DELETE",
     }
@@ -87,6 +88,7 @@ const createTareaItem = (singleTask) => {
   let deleteTaskBtnText = document.createTextNode("Delete");
   deleteTaskBtn.classList.add("btn", "btn-danger");
   deleteTaskBtn.append(deleteTaskBtnText);
+
   deleteTaskBtn.addEventListener("click", async () => {
     let data = await deleteTask(key);
     printAllTasks();
