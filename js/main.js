@@ -110,13 +110,7 @@ const createTareaItem = (singleTask) => {
 
     let removeFromTodoNow = document.createElement("button");
     removeFromTodoNow.classList.add("btn", "btn-danger");
-    removeFromTodoNow.id = "removeFromTodoNow";
-    let removeFromTodoNowText = document.createTextNode("-");
-    removeFromTodoNow.append(removeFromTodoNowText);
-    newLi.append(removeFromTodoNow);
-
-    let removeBtn = document.getElementById("removeFromTodoNow");
-    removeBtn.addEventListener("click", () => {
+    removeFromTodoNow.addEventListener("click", () => {
       addTaskBtn.style.display = "inline";
       tareasUl.appendChild(newLi);
       removeFromTodoNow.style.display = "none";
@@ -125,6 +119,10 @@ const createTareaItem = (singleTask) => {
 
       deleteTaskBtn.append(deleteTaskBtnText);
     });
+    let removeFromTodoNowText = document.createTextNode("-");
+    removeFromTodoNow.append(removeFromTodoNowText);
+
+    newLi.append(removeFromTodoNow);
   });
 
   buttonWrapper.append(addTaskBtn, deleteTaskBtn);
